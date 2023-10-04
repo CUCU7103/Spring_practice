@@ -1,0 +1,24 @@
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">Email</th>
+        <th scope="col">password</th>
+    </tr>
+    </thead>
+<tbody>
+<!-- model에 담긴 객체를 사용하기 위함   -->
+    {{#members}}
+    <tr>
+        <th>{{id}}</th>
+        <td>{{email}}</td>
+        <td>{{password}}</td>
+    </tr>
+    </tbody>
+    {{/members}}
+</table>
+<!--<a href="/members/{{members.id}}/edit" class="btn btn-primary">Edit</a>-->
+<a href="/members">Go to Article List</a>
+
+{{>layouts/footer}}

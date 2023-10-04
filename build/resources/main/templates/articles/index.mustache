@@ -1,0 +1,25 @@
+<!--게시글 목록 페이지-->
+{{>layouts/header}}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">id</th>
+        <th scope="col">title</th>
+        <th scope="col">Content</th>
+    </tr>
+    </thead>
+<tbody>
+<!-- model에 담긴 객체를 사용하기 위함   -->
+    {{#articleList}}
+    <tr>
+        <th>{{id}}</th>
+        <td><a href="/articles/{{id}}">{{title}}</a></td>
+        <td>{{content}}</td>
+    </tr>
+    {{/articleList}}
+    </tbody>
+</table>
+<a href="/articles/new">New Article</a>
+
+
+{{>layouts/footer}}
