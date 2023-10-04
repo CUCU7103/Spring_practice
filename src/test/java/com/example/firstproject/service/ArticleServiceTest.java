@@ -57,4 +57,5 @@ class ArticleServiceTest {
         // 3. 비교 및 검증
         assertEquals(expected,article);
     }
+    // committ 용 변경사항
 }
