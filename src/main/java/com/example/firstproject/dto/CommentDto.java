@@ -18,7 +18,8 @@ public class CommentDto {
     private String body; // 댓글 본문
 
     // 생성 메서드
-    public static CommentDto createCommentDto(Comment comment) {
+    // entity를 dto로 변경해준다.
+    public static CommentDto createCommentDto(Comment comment) { // Dto 생성 메서드
         return new CommentDto(
                 comment.getId(), // 댓글 entity의 id
                 comment.getArticle().getId(), // 댓글 entity가 속한 부모 게시글의 id

@@ -8,6 +8,7 @@
 <named-native-query
         name="Comment.findbyNickName"
         result-class="com.example.firstproject.entity.Comment">
+<!--  name으로 메서드를 지정한다.   -->
     <query>
         <![CDATA[
             select * from comment where nickname = :nickname
