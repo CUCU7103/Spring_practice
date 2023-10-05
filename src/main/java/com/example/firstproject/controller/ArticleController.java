@@ -1,8 +1,11 @@
 package com.example.firstproject.controller;
 
 import com.example.firstproject.dto.ArticleForm;
+import com.example.firstproject.dto.CommentDto;
 import com.example.firstproject.entity.Article;
+import com.example.firstproject.entity.Comment;
 import com.example.firstproject.repository.ArticleRepository;
+import com.example.firstproject.service.CommentService;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +24,8 @@ import java.util.List;
 public class ArticleController {
     @Autowired // spring boot에 의한 객체주입 (의존성 주입)
     private ArticleRepository articleRepository; // repository 객체 주입됨
+    @Autowired
+    private CommentService commentService; // 서비스 객체를 주입함.
 
     // 입력페이지
     @GetMapping("/articles/new") // url 요청을 받는다.
@@ -48,12 +53,14 @@ public class ArticleController {
         // String 타입으로 선언하는건 결국 return 값이 url 주소를 지정하기 때문이다.
         log.info("id = " + id);
         // 1. id를 조회해 데이터 가져오기
-        // findById()는 jpa의 crudrepository가 제공하는 메서드로 특정 엔티티의 id 기준으로 데이털르 찾아  Optinal 타입으로 반환합니다.
+        // findById()는 jpa의 crudrepository가 제공하는 메서드로 특정 엔티티의 id 기준으로 데이터를 찾아  Optinal 타입으로 반환합니다.
         // Article articleEntity = articleRepository.findById(id); // 반환 타입이 맞지 않아 오류가 발생한다.
         Article articleEntity = articleRepository.findById(id).orElse(null);
+        List<CommentDto> commentsDtos = commentService.comments(id);
         // orElse()를 사용함
         // 2. 모델에 데이터 조회하기
         model.addAttribute("article",articleEntity); // article이라는 이름으로 객채를 등록함.
+        model.addAttribute("commentsDtos",commentsDtos); // 댓글 목록을 모델에 등록하였다.
         // 3. 뷰 페이지 전환하기
         return "articles/show";
     }
