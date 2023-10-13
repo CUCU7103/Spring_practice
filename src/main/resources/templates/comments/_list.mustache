@@ -21,7 +21,8 @@
                     수정</button>
 <!--  댓글 삭제 버튼을 생성함    -->
                 <button type="button"
-                        class="btn btn-sm btn-outline-danger comment-delete-btn">
+                        class="btn btn-sm btn-outline-danger comment-delete-btn"
+                        data-comment-id ="{{id}}">
                     삭제
                 </button>
             </div>
@@ -71,7 +72,6 @@
     </div>
 </div>
 
-<!-- 모달 이벤트 처리 (모달 관련 작업을 진행한다.)-->
 <script>
     {
         // 모달 요소 선택
@@ -128,13 +128,42 @@
         });
     }
 
-// <!-- 댓글 삭제 -->
+    // <!-- 댓글 삭제 -->
     {
         // 삭제 버튼 선택
-        const commentDeleteBtn = document.querySelector(".comment-delete-btn");
-        // 삭제 이벤트 처리
-        commentDeleteBtn.addEventListener("click",function(){
-           console.log("삭제버튼이 클릭되었습니다."); // 클릭 이벤트 확인하기
+        const commentDeleteBtns = document.querySelectorAll(".comment-delete-btn");
+        //        // 삭제 이벤트 처리
+        //        commentDeleteBtn.addEventListener("click",function(){
+        //           console.log("삭제버튼이 클릭되었습니다."); // 클릭 이벤트 확인하기
+        //        });
+        // 여러개의 삭제 버튼을 선택해야 함으로 반복처리를 위한 foreach 메서드를 사용합니다.
+        commentDeleteBtns.forEach(btn => { // 삭제 버튼 수만큼 반복합니다.
+            btn.addEventListener("click",(event)=>{ // 각 버튼의 이벤트 처리를 진행함.
+                // 이벤트 발생요소를 선택함
+                const commentDeleteBtn = event.target; // 삭제 버튼의 변수화 진행
+                // 삭제 댓글 id를 가져오기
+                const commentId = commentDeleteBtn.getAttribute("data-comment-id");
+                console.log(`삭제 버튼 클릭: ${commentId}번 댓글`);
+                // 삭제 Rest api 호출
+                const url = `/api/comments/${commentId}`;
+                fetch(url, {
+                   method: "DELETE"
+                }).then(response => {
+                    // 댓글 삭제 실패 처리
+                     if (!response.ok) {
+                          alert("댓글 삭제 실패");
+                          return;
+                     }
+                    // 삭제 성공 시 댓글을 화면에서 지우고 메시지 창 띄우기
+                    const target = document.querySelector(`#comments-${commentId}`);
+                    target.remove();
+                    const msg = `${commentId}번 댓글을 삭제하였습니다`;
+                    alert(msg);
+                    // 현재 페이지 새로 고침
+                    window.location.reload();
+                });
+            });
         });
     }
 </script>
+<!-- 모달 이벤트 처리 (모달 관련 작업을 진행한다.)-->
