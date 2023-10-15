@@ -13,6 +13,7 @@ import java.util.ArrayList;
 // 단일 데이터를 조회할때는 엔티티를 반환하고
 // 데이터 목록을 조회할때는 List<>를 반환한다.
 public interface ArticleRepository extends CrudRepository<Article, Long> { // crud 작업을 가능하게 해준다.
+    // CrudRepository<대상 엔티티 , ID의 속성>을 지정하면된다.
     @Override  // Iterable -> ArrayList 수정
     ArrayList<Article> findAll(); // <관리 대상 엔티티의 클래스타입 , 관리대상 엔티티의 대표값 타입>
 

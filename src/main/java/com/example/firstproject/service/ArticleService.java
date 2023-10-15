@@ -37,10 +37,12 @@ public class ArticleService {
     }
 
     public Article update(Long id, ArticleForm dto) {
-        // 1. 수정용 entity 생성하기 (dto 엔티티 변환) // 수정한 데이터를 받는다.
+        // 1. 수정용 entity 생성하기 (dto 엔티티 변환)
+        // article이라는 새로운 객체를 생성해서 수정한 데이터를 받는다.
         Article article = dto.toEntity();
         log.info("id: {}, article:{}",id, article.toString()); // 진행사항 확인을 위한 로그 찍기
         // 2. 타깃 조회하기 (DB에 대상 엔티티가 있는지 조회하기)
+        //
         Article target = articleRepository.findById(id).orElse(null); // repository의 값을 엔티티에 넣는다.
         // 3. 잘못된 요청처리하기 (대상 엔티티가 없거나 수정하려는 id가 잘못됬을경우 처리하기)
         if(target == null || id != article.getId()) {

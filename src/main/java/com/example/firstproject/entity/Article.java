@@ -24,6 +24,9 @@ public class Article { // DB에 테이블을 설정한다고 생각하면된다.
     private String content;
 
     // 수정할 내용이 있을 경우에만 동작.
+    // update 작업은 결국 table상에서 변경이 일어나는 작업이다
+    // 즉 기존의 정보를 DTO로 전달하고
+    // 전달된 정보가 entity로 넘어오고  repository를 통해 db에 반영되어진다.
     public void patch(Article article) { //
         if(article.title != null) // 갱신할 값이 있다면 갱신을 진행한다.
             this.title = article.title;
