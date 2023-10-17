@@ -27,4 +27,6 @@ public class CommentDto {
                 comment.getBody() // 댓글 entity의 body
         );
     }
+
+
 }

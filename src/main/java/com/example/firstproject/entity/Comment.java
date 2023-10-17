@@ -37,7 +37,7 @@ public class Comment {
         if(dto.getArticleId() != article.getId())
             throw new IllegalArgumentException("댓글 생성 실패!, 게시글의 아이디가 잘못되었습니다.");
         // 엔티티 생성 및 반환
-        //
+
         // Service에서 받아온 값들을 사용한다.
         return new Comment(
                 dto.getId(), // 댓글 아이디
