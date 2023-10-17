@@ -25,6 +25,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
+	implementation 'com.opencsv:opencsv:5.5'
+
 	// MySql 드라이버 설치하기
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 
