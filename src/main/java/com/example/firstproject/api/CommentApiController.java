@@ -32,7 +32,7 @@ public class CommentApiController {
         // 서비스에 위임
         CommentDto createDto = commentService.create(articleId,dto);
         // 결과 응답
-//        return ResponseEntity.status(HttpStatus.OK).body(createDto);
+        return ResponseEntity.status(HttpStatus.OK).body(createDto);
     }
     // 3. 댓글 수정
     @PatchMapping("/api/comments/{id}") // 댓글 수정 요청을 접수함.
