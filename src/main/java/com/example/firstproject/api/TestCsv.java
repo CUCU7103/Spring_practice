@@ -14,6 +14,7 @@ import java.util.List;
 public class TestCsv {
     public static void main(String[] args) throws IOException, CsvException {
         String charset = "UTF-8"; // 인코딩 설정하기 이 설정이 아니면 한글이 깨진다.
+        String csvFile = "C:/Users/argos/Desktop/소스코드_080354_UP_230907/장별 완성 코드/장별 완성 코드(프로젝트파일)/firstproject2/src/main/resources/test.csv"; // 경로 지정함.
         String csvFile = "C:/git_clone/src/main/resources/test.csv"; // 경로 지정함.
         //CSVReader 사용함
         CSVReader reader = new CSVReader(new InputStreamReader(new FileInputStream(csvFile),charset)); // 인코딩 설정에 맞추어 파일변환.
