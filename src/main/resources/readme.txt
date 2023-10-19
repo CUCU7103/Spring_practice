@@ -57,3 +57,14 @@ logging.level.org.hibernate.type.descriptor.sql.BasicBinder=TRACE
 spring.datasource.generate-unique-name=false
 # ?? URL ????
 spring.datasource.url=jdbc:h2:mem:testdb
+
+# springdoc의 기본경로 정보와 정렬등을 설정
+springdoc.swagger-ui.path=/swagger.html
+springdoc.swagger-ui.tags-sorter=alpha
+springdoc.swagger-ui.operations-sorter=alpha
+springdoc.api-docs.path=/api-docs
+
+
+# 요청과 응답에 대한 기본 mediaType값을 지정
+springdoc.default-consumes-media-type=application/json;charset=UTF-8
+springdoc.default-produces-media-type=application/json;charset=UTF-8
