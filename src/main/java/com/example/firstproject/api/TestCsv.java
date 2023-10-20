@@ -32,7 +32,7 @@ public class TestCsv {
 
 
 }*/
-
+// 일반 클래스를 생성했으므로
     public static void main(String[] args) {
         String charset = "UTF-8"; // 인코딩 설정
         String csvFile = "src/main/resources/품목12.csv"; // 파일경로
