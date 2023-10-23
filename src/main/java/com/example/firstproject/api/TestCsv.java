@@ -3,6 +3,7 @@ package com.example.firstproject.api;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,6 +11,7 @@ import java.io.InputStreamReader;
 
 
 
+@Slf4j
 public class TestCsv {
  /*   public static void main(String[] args) throws IOException, CsvException {
 
@@ -35,7 +37,7 @@ public class TestCsv {
 // 일반 클래스를 생성했으므로
     public static void main(String[] args) {
         String charset = "UTF-8"; // 인코딩 설정
-        String csvFile = "src/main/resources/품목12.csv"; // 파일경로
+        String csvFile = "src/main/resources/품목123.csv"; // 파일경로
         // 전역변수로 사용하기 위함.
         CSVReader reader = null;
         // 예외처리 진행함.
@@ -52,7 +54,7 @@ public class TestCsv {
 
             }
         } catch (IOException e) {
-            System.err.println("파일을 읽는 동안 오류가 발생함.");
+            log.info("파일 여는데 오류발생함",e);
         } catch (CsvException e) {
             System.err.println("CSV 처리 중에 오류가 발생.");
         } finally {

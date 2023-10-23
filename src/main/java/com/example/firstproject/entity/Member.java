@@ -23,4 +23,5 @@ public class Member {
     @Column
     private String password;
 
+
 }

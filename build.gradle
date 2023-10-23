@@ -25,11 +25,23 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-mustache'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// spring security 사용
+//	implementation 'org.springframework.boot:spring-boot-starter-security'
+//	implementation 'org.springframework.security:spring-security-test'
 
+	implementation 'org.slf4j:slf4j-api:2.0.7'
+
+
+
+	// jwt 라이브러리 추가
+//	implementation 'io.jsonwebtoken:jjwt:0.9.1'
+
+	// csv 사용을 위함
 	implementation 'com.opencsv:opencsv:5.5'
 
+
 	// MySql 드라이버 설치하기
-//	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+	//	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	// H2 DB 사용하기
 	runtimeOnly 'com.h2database:h2'
 	// runtimeOnly 'com.h2database:h2'

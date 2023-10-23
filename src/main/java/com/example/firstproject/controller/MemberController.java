@@ -18,7 +18,7 @@ import java.util.List;
 public class MemberController {
     @Autowired
     MemberRepository memberRepository;
-    @GetMapping("/signup")
+    @GetMapping("/signup") // 회원가입 페이지로 이동함.
     public String newMemberForm(){
         return "members/new";
     }
@@ -46,6 +46,7 @@ public class MemberController {
         model.addAttribute("memberList",memberList);
         return "members/index";
     }
+
 
 
 
