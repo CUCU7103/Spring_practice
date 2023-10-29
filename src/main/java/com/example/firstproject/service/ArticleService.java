@@ -25,7 +25,7 @@ public class ArticleService {
     }
 
     public Article show(Long id) {
-        return articleRepository.findById(id).orElse(null);
+        return articleRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("not found: " + id));
     }
 
     public Article create(ArticleForm dto) {
